@@ -1,6 +1,8 @@
 #
 # Reboot into recovery mode (cmd +r )  and in the terminal
 #
+#Server Performance Mode (a.k.a. perfmode or serverperfmode) changes a number of kernel parameters, reserving a lot more memory for the kernel in order to provide a lot higher limits and thus enable a lot more processes to run, files to be open, and network connections to be handled, among other things. All of the parameters scale with the amount of memory installed, within limits, and nothing changes unless you have at least 16 GiB of memory installed.
+#Note that ncl is a maximum and that the system dynamically allocates memory as needed up to that maximum, so that netstat -mm will show much smaller memory usage until a load is applied. Attempting to use 384K buffers hosed the networking stack. ncl=262144 might be the hard limit.
 nvram boot-args="serverperfmode=1 ncl=262144"
 #reboot
 
