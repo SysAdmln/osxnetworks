@@ -1,0 +1,21 @@
+#
+# Reboot into recovery mode (cmd +r )  and in the terminal
+#
+nvram boot-args="serverperfmode=1 ncl=262144"
+#reboot
+
+
+
+#
+# In regular mode
+# https://rolande.wordpress.com/2010/12/30/performance-tuning-the-network-stack-on-mac-osx-10-6/
+#create the file /etc/sysctl.conf and reboot
+
+
+kern.ipc.maxsockbuf=16777216
+net.inet.tcp.sendspace=1048576
+net.inet.tcp.recvspace=1048576
+net.inet.tcp.win_scale_factor=8
+net.inet.tcp.autorcvbufmax=33554432
+net.inet.tcp.autosndbufmax=33554432
+net.inet.tcp.mssdflt=1448
